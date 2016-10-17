@@ -1,0 +1,41 @@
+Exercise 1:
+start mysql instance: mysql-ctl start
+
+Exercise 2:
+create database decodemtl_test;
+
+create database decodemtl_addressbook;
+
+Exercise 3:
+drop database decodemtl_test;
+
+Exercise 4:
+show databases;
+
+Exercise 5:
+use decodemtl_addressbook;
+create table Account (id INT);
+create table AddressBook (name varchar);
+create table Entry (name varchar);
+create table Test (id INT);
+
+Exercise 6:
+drop table Test;
+
+Exercise 7: 
+show tables;
+(if not using the database, enter 'use database databasename' first)
+
+Exercise 8:
+alter table Account
+modify id INT primary key
+add column (email varchar(255), createdOn DATETIME, modifiedOn DATETIME);
+
+Exercise 9: 
+mysql> create database Barn;
+
+mysql> use Barn;
+mysql> show tables;
+mysql> create table ChickenBarn (dates DATE, rooster INT, hen INT, chicks INT);
+mysql> alter table ChickenBarn
+    -> add (agedChick INT);
