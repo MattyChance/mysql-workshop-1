@@ -35,7 +35,7 @@ Exercise 9:
 mysql> create database Barn;
 
 mysql> use Barn;
-mysql> show tables;
-mysql> create table ChickenBarn (dates DATE, rooster INT, hen INT, chicks INT);
-mysql> alter table ChickenBarn
-    -> add (agedChick INT);
+mysql> create table ChickenBarn (id INT primary key, type ENUM('hen', 'rooster', 'chick'), dateHatched DATE, dateAged DATE, dateDied DATE);
+mysql> describe ChickenBarn;
+    
+Exercise 10:
