@@ -39,3 +39,17 @@ mysql> create table ChickenBarn (id INT primary key, type ENUM('hen', 'rooster',
 mysql> describe ChickenBarn;
     
 Exercise 10:
+mysql> describe room;
++-------------------+-----------------------------------------------------+------+-----+---------+-------+
+| Field             | Type                                                | Null | Key | Default | Extra |
++-------------------+-----------------------------------------------------+------+-----+---------+-------+
+| RoomNumber        | int(11)                                             | NO   | PRI | 0       |       |
+| date              | date                                                | YES  |     | NULL    |       |
+| RoomType          | varchar(20)                                         | YES  |     | NULL    |       |
+| RoomStatus        | enum('Available','setDirty','Occupied','sendClean') | YES  |     | NULL    |       |
+| MaxNumberOfGuests | int(11)                                             | YES  |     | NULL    |       |
+| PrivateKitchen    | enum('Y','N')                                       | YES  |     | NULL    |       |
+| ForRent           | enum('Y','N')                                       | YES  |     | NULL    |       |
+| onFloor           | int(11)                                             | YES  |     | NULL    |       |
+| numOfWindows      | int(11)                                             | YES  |     | NULL    |       |
++-------------------+-----------------------------------------------------+------+-----+---------+-------+
