@@ -14,7 +14,7 @@ show databases;
 
 Exercise 5:
 use decodemtl_addressbook;
-create table Account (id INT);
+create table Account (id INT); (or create table decodemtl_addressbook.Account (id INT);
 create table AddressBook (name varchar);
 create table Entry (name varchar);
 create table Test (id INT);
@@ -24,7 +24,7 @@ drop table Test;
 
 Exercise 7: 
 show tables;
-(if not using the database, enter 'use database databasename' first)
+(if not using the database, enter 'use database databasename' first) or show tables from databasename
 
 Exercise 8:
 alter table Account
@@ -39,18 +39,44 @@ mysql> create table ChickenBarn (id INT primary key, type ENUM('hen', 'rooster',
 mysql> describe ChickenBarn;
     
 Exercise 10:
+mysql> create table floor(floor_id INT primary key auto_increment, room_id INT, window_id INT);                                                                 
+Query OK, 0 rows affected (0.01 sec)
+mysql> describe floor;
++-----------+---------+------+-----+---------+----------------+
+| Field     | Type    | Null | Key | Default | Extra          |
++-----------+---------+------+-----+---------+----------------+
+| floor_id  | int(11) | NO   | PRI | NULL    | auto_increment |
+| room_id   | int(11) | YES  |     | NULL    |                |
+| window_id | int(11) | YES  |     | NULL    |                |
++-----------+---------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+
+mysql> CREATE table room(room_id INT primary key auto_increment, room_number INT, room_type ENUM('guestroom', 'gym', 'meetingroom', 'closet', 'laundryroom'), capacity INT, withCarpet ENUM('Y', 'N'), withKitchen ENUM('Y', 'N'));
+Query OK, 0 rows affected (0.01 sec)
 mysql> describe room;
-+---------------------+-----------------------------------------------------+------+-----+---------+-------+
-| Field               | Type                                                | Null | Key | Default | Extra |
-+---------------------+-----------------------------------------------------+------+-----+---------+-------+
-| RoomNumber          | int(11)                                             | NO   | PRI | 0       |       |
-| date                | date                                                | YES  |     | NULL    |       |
-| RoomType            | varchar(20)                                         | YES  |     | NULL    |       |
-| RoomStatus          | enum('Available','setDirty','Occupied','sendClean') | YES  |     | NULL    |       |
-| MaxNumberOfGuests   | int(11)                                             | YES  |     | NULL    |       |
-| PrivateKitchen      | enum('Y','N')                                       | YES  |     | NULL    |       |
-| ForRent             | enum('Y','N')                                       | YES  |     | NULL    |       |
-| onFloor             | int(11)                                             | YES  |     | NULL    |       |
-| numOfWindows        | int(11)                                             | YES  |     | NULL    |       |
-| furnishedWithCarpet | enum('Y','N')                                       | YES  |     | NULL    |       |
-+---------------------+-----------------------------------------------------+------+-----+---------+-------+
++-------------+--------------------------------------------------------------+------+-----+---------+----------------+
+| Field       | Type                                                         | Null | Key | Default | Extra          |
++-------------+--------------------------------------------------------------+------+-----+---------+----------------+
+| room_id     | int(11)                                                      | NO   | PRI | NULL    | auto_increment |
+| room_number | int(11)                                                      | YES  |     | NULL    |                |
+| room_type   | enum('guestroom','gym','meetingroom','closet','laundryroom') | YES  |     | NULL    |                |
+| capacity    | int(11)                                                      | YES  |     | NULL    |                |
+| withCarpet  | enum('Y','N')                                                | YES  |     | NULL    |                |
+| withKitchen | enum('Y','N')                                                | YES  |     | NULL    |                |
++-------------+--------------------------------------------------------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> create table room_availability (date DATETIME, room_id INT primary key, room_status ENUM('available', 'occupied', 'setD
+irty', 'sendCleaner'));                                                                                                       
+Query OK, 0 rows affected (0.01 sec)
+mysql> describe room_availability;
++-------------+-------------------------------------------------------+------+-----+---------+-------+
+| Field       | Type                                                  | Null | Key | Default | Extra |
++-------------+-------------------------------------------------------+------+-----+---------+-------+
+| date        | datetime                                              | YES  |     | NULL    |       |
+| room_id     | int(11)                                               | NO   | PRI | NULL    |       |
+| room_status | enum('available','occupied','setDirty','sendCleaner') | YES  |     | NULL    |       |
++-------------+-------------------------------------------------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
